@@ -15,6 +15,7 @@
 		E2CAAE0F1E70A386005FD2D7 /* FLYObjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CAAE0E1E70A385005FD2D7 /* FLYObjectManager.swift */; };
 		E2CAAE111E70A89A005FD2D7 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CAAE101E70A89A005FD2D7 /* Globals.swift */; };
 		E2CAAE131E71E3F1005FD2D7 /* FLYHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CAAE121E71E3F1005FD2D7 /* FLYHomeViewController.swift */; };
+		E2CAAE151E7533FE005FD2D7 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CAAE141E7533FE005FD2D7 /* Agent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		E2CAAE0E1E70A385005FD2D7 /* FLYObjectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLYObjectManager.swift; sourceTree = "<group>"; };
 		E2CAAE101E70A89A005FD2D7 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		E2CAAE121E71E3F1005FD2D7 /* FLYHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLYHomeViewController.swift; sourceTree = "<group>"; };
+		E2CAAE141E7533FE005FD2D7 /* Agent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 		E2CAAE0B1E709CC5005FD2D7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E2CAAE141E7533FE005FD2D7 /* Agent.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				E2CAAE111E70A89A005FD2D7 /* Globals.swift in Sources */,
 				E2CAAE0F1E70A386005FD2D7 /* FLYObjectManager.swift in Sources */,
 				E2CAADFB1E7097CE005FD2D7 /* ViewController.swift in Sources */,
+				E2CAAE151E7533FE005FD2D7 /* Agent.swift in Sources */,
 				E2CAADF91E7097CE005FD2D7 /* AppDelegate.swift in Sources */,
 				E2CAAE131E71E3F1005FD2D7 /* FLYHomeViewController.swift in Sources */,
 			);

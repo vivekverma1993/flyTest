@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import ObjectMapper
 
 class FLYHomeViewController: UIViewController {
     private var tableView : UITableView?
     private var objectManager : FLYObjectManager?
-    
+    private var agents : [Agent] = [Agent]()
     //MARK : - life cycle methods
     
     override func viewDidLoad() {
@@ -55,7 +56,11 @@ class FLYHomeViewController: UIViewController {
     
     private func p_handleResponse(response : AnyObject) {
         if let value = response as AnyObject? {
-            print(value["businesses"] as? Array ?? [])
+            let businesses = value["businesses"] as? Array ?? []
+            for business in businesses {
+                let agent = Mapper<Agent>().map(JSONObject: business)
+                agents.append(agent!)
+            }
         }
     }
     
