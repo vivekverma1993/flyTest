@@ -12,6 +12,9 @@
 		E2CAADFB1E7097CE005FD2D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CAADFA1E7097CE005FD2D7 /* ViewController.swift */; };
 		E2CAAE001E7097CE005FD2D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2CAADFF1E7097CE005FD2D7 /* Assets.xcassets */; };
 		E2CAAE031E7097CE005FD2D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2CAAE011E7097CE005FD2D7 /* LaunchScreen.storyboard */; };
+		E2CAAE0F1E70A386005FD2D7 /* FLYObjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CAAE0E1E70A385005FD2D7 /* FLYObjectManager.swift */; };
+		E2CAAE111E70A89A005FD2D7 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CAAE101E70A89A005FD2D7 /* Globals.swift */; };
+		E2CAAE131E71E3F1005FD2D7 /* FLYHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CAAE121E71E3F1005FD2D7 /* FLYHomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		E2CAADFF1E7097CE005FD2D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2CAAE021E7097CE005FD2D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2CAAE041E7097CE005FD2D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2CAAE0E1E70A385005FD2D7 /* FLYObjectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLYObjectManager.swift; sourceTree = "<group>"; };
+		E2CAAE101E70A89A005FD2D7 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		E2CAAE121E71E3F1005FD2D7 /* FLYHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLYHomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +98,7 @@
 		E2CAAE0A1E7099B7005FD2D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E2CAAE121E71E3F1005FD2D7 /* FLYHomeViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -113,6 +120,8 @@
 		E2CAAE0D1E709ED3005FD2D7 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				E2CAAE0E1E70A385005FD2D7 /* FLYObjectManager.swift */,
+				E2CAAE101E70A89A005FD2D7 /* Globals.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -240,8 +249,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2CAAE111E70A89A005FD2D7 /* Globals.swift in Sources */,
+				E2CAAE0F1E70A386005FD2D7 /* FLYObjectManager.swift in Sources */,
 				E2CAADFB1E7097CE005FD2D7 /* ViewController.swift in Sources */,
 				E2CAADF91E7097CE005FD2D7 /* AppDelegate.swift in Sources */,
+				E2CAAE131E71E3F1005FD2D7 /* FLYHomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
