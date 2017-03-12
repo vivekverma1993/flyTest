@@ -13,14 +13,14 @@ class Agent: Mappable {
     
     var image_url : String?
     var display_phone : String?
-    var distance : String?
+    var distance : Double?
     var name : String?
-    var rating : String?
+    var rating : Int?
     var phone : String?
     var id : String?
-    var review_count : String?
+    var review_count : Int?
     var url : String?
-    var is_closed : String?
+    var is_closed : Bool?
     var coordinates : AgentCoordinates?
     var location : AgentAddress?
 
