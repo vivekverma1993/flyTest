@@ -7,5 +7,5 @@ target 'flyTest' do
 
   # Pods for flyTest
   pod 'Alamofire', '~> 4.4'
-
+  pod 'ObjectMapper', '~> 2.2'
 end
