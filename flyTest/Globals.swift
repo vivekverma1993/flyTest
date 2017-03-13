@@ -17,6 +17,7 @@ struct Globals {
 
 struct Icons {
     static let STAR_ICON : String = String.init("\u{e705}")
+    static let LOCATION_ICON : String = String.init("\u{e94e}")
 }
 
 struct Colors {

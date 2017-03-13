@@ -9,4 +9,5 @@ target 'flyTest' do
   pod 'Alamofire', '~> 4.4'
   pod 'ObjectMapper', '~> 2.2'
   pod 'PINRemoteImage', '3.0.0-beta.8'
+  pod 'PKHUD', '~> 4.0'
 end
