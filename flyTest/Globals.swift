@@ -26,6 +26,7 @@ struct Colors {
     static let GRAY_COLOR  : UIColor = UIColor.gray
     static let FAFAFA      : UIColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.0)
     static let BLUE_COLOR  : UIColor = UIColor.blue
+    static let WHITE_COLOR : UIColor = UIColor.white
 }
 
 struct Strings {
@@ -49,3 +50,4 @@ struct CommonFunctions {
                                                            context: nil).size
     }
 }
+

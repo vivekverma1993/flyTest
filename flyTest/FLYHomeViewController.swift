@@ -10,28 +10,40 @@ import UIKit
 import ObjectMapper
 
 class FLYHomeViewController: UIViewController {
+
     private var tableView : UITableView?
+    private var searchView : FLYSearchView?
     private var objectManager : FLYObjectManager?
+    private var cities : [NSDictionary]?
     var agents : [Agent] = [Agent]()
+    
+    
     //MARK : - life cycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.automaticallyAdjustsScrollViewInsets = false
         self.view.backgroundColor = UIColor.red
         objectManager = FLYObjectManager()
         self.p_initSubViews()
-        self.p_fetchData()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        tableView?.frame = CGRect(x: 0, y: 0, width: Globals.SCREEN_WIDTH, height: Globals.SCREEN_HEIGHT)
+        tableView?.frame = CGRect(x: 0, y: 64, width: Globals.SCREEN_WIDTH, height: self.view.frame.height - 64)
+        searchView?.frame = CGRect(x: 0, y: 64, width: Globals.SCREEN_WIDTH, height: self.view.frame.height - 64)
     }
     
     //MARK - private methods
     
     private func p_initSubViews() {
+        self.setupNavigationBarProperties()
         self.p_setupTableView()
+        self.p_setupSearchView()
+    }
+    
+    private func setupNavigationBarProperties() {
+        self.navigationItem.title = "Agents Search"
     }
     
     private func p_setupTableView() {
@@ -43,8 +55,15 @@ class FLYHomeViewController: UIViewController {
         self.view.addSubview(tableView!)
     }
     
-    private func p_fetchData() {
-        let params : String = "Real Estate Agents&latitude=37.786882&longitude=-122.399972&radius=30000"
+    private func p_setupSearchView() {
+        searchView = FLYSearchView()
+        searchView?.backgroundColor = Colors.WHITE_COLOR
+        searchView?.delegate = self
+        self.view.addSubview(searchView!)
+    }
+    
+    func p_fetchData(lat : Double, long : Double) {
+        let params : String = "Real Estate Agents&latitude=\(lat)&longitude=\(long)&radius=30000"
         let hostUrl : String = "https://api.yelp.com/v3/businesses/search?term="
         objectManager?.getObjectWithUrlPath(urlPath: hostUrl, params:params, success: { [weak self] response in
             self?.p_handleResponse(response: response!)
@@ -62,11 +81,18 @@ class FLYHomeViewController: UIViewController {
                 agents.append(agent!)
             }
             tableView?.reloadData()
+            searchView?.removeFromSuperview()
         }
     }
     
     private func p_handleFailure() {
         
+    }
+}
+
+extension FLYHomeViewController : FLYSearchViewDelegate {
+    func agentSearchedWithData(latitude: Double, longitude: Double) {
+        self.p_fetchData(lat: latitude, long: longitude)
     }
 }
 

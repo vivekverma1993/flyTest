@@ -19,6 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let homeViewController : FLYHomeViewController = FLYHomeViewController()
         let navigationController : UINavigationController = UINavigationController.init(rootViewController: homeViewController)
+    
+        UINavigationBar.appearance().barTintColor = Colors.THEME_COLOR
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+        
+        UIApplication.shared.statusBarStyle = .lightContent
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
         return true

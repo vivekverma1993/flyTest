@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		16BC6F7B204415C2388733E2 /* Pods_flyTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE01E4B8D4448CFCC8BB58D /* Pods_flyTest.framework */; };
+		E25BFCC41E765C84003FA329 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = E25BFCC31E765C84003FA329 /* cities.json */; };
+		E25BFCC61E765E4D003FA329 /* CitiesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25BFCC51E765E4D003FA329 /* CitiesData.swift */; };
+		E25BFCC81E767439003FA329 /* FLYSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25BFCC71E767438003FA329 /* FLYSearchView.swift */; };
 		E2CAADF91E7097CE005FD2D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CAADF81E7097CE005FD2D7 /* AppDelegate.swift */; };
 		E2CAADFB1E7097CE005FD2D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CAADFA1E7097CE005FD2D7 /* ViewController.swift */; };
 		E2CAAE001E7097CE005FD2D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2CAADFF1E7097CE005FD2D7 /* Assets.xcassets */; };
@@ -24,6 +27,9 @@
 		0C2D92686980CA8D12B547E3 /* Pods-flyTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flyTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-flyTest/Pods-flyTest.release.xcconfig"; sourceTree = "<group>"; };
 		6AE01E4B8D4448CFCC8BB58D /* Pods_flyTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_flyTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C867165B80760044E6307C8 /* Pods-flyTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flyTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-flyTest/Pods-flyTest.debug.xcconfig"; sourceTree = "<group>"; };
+		E25BFCC31E765C84003FA329 /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
+		E25BFCC51E765E4D003FA329 /* CitiesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitiesData.swift; sourceTree = "<group>"; };
+		E25BFCC71E767438003FA329 /* FLYSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLYSearchView.swift; sourceTree = "<group>"; };
 		E2CAADF51E7097CE005FD2D7 /* flyTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flyTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2CAADF81E7097CE005FD2D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2CAADFA1E7097CE005FD2D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +101,7 @@
 				E2CAADF81E7097CE005FD2D7 /* AppDelegate.swift */,
 				E2CAADFA1E7097CE005FD2D7 /* ViewController.swift */,
 				E2CAADFF1E7097CE005FD2D7 /* Assets.xcassets */,
+				E25BFCC31E765C84003FA329 /* cities.json */,
 				E2CAAE011E7097CE005FD2D7 /* LaunchScreen.storyboard */,
 				E2CAAE181E75C452005FD2D7 /* icomoon.ttf */,
 				E2CAAE041E7097CE005FD2D7 /* Info.plist */,
@@ -122,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				E2CAAE161E75BCF9005FD2D7 /* FlyAgentTableViewCell.swift */,
+				E25BFCC71E767438003FA329 /* FLYSearchView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -131,6 +139,7 @@
 			children = (
 				E2CAAE0E1E70A385005FD2D7 /* FLYObjectManager.swift */,
 				E2CAAE101E70A89A005FD2D7 /* Globals.swift */,
+				E25BFCC51E765E4D003FA329 /* CitiesData.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -198,6 +207,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E25BFCC41E765C84003FA329 /* cities.json in Resources */,
 				E2CAAE191E75C452005FD2D7 /* icomoon.ttf in Resources */,
 				E2CAAE031E7097CE005FD2D7 /* LaunchScreen.storyboard in Resources */,
 				E2CAAE001E7097CE005FD2D7 /* Assets.xcassets in Resources */,
@@ -262,9 +272,11 @@
 				E2CAAE111E70A89A005FD2D7 /* Globals.swift in Sources */,
 				E2CAAE0F1E70A386005FD2D7 /* FLYObjectManager.swift in Sources */,
 				E2CAADFB1E7097CE005FD2D7 /* ViewController.swift in Sources */,
+				E25BFCC81E767439003FA329 /* FLYSearchView.swift in Sources */,
 				E2CAAE171E75BCF9005FD2D7 /* FlyAgentTableViewCell.swift in Sources */,
 				E2CAAE151E7533FE005FD2D7 /* Agent.swift in Sources */,
 				E2CAADF91E7097CE005FD2D7 /* AppDelegate.swift in Sources */,
+				E25BFCC61E765E4D003FA329 /* CitiesData.swift in Sources */,
 				E2CAAE131E71E3F1005FD2D7 /* FLYHomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
