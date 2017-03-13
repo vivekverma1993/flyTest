@@ -16,6 +16,8 @@
 		E2CAAE111E70A89A005FD2D7 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CAAE101E70A89A005FD2D7 /* Globals.swift */; };
 		E2CAAE131E71E3F1005FD2D7 /* FLYHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CAAE121E71E3F1005FD2D7 /* FLYHomeViewController.swift */; };
 		E2CAAE151E7533FE005FD2D7 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CAAE141E7533FE005FD2D7 /* Agent.swift */; };
+		E2CAAE171E75BCF9005FD2D7 /* FlyAgentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CAAE161E75BCF9005FD2D7 /* FlyAgentTableViewCell.swift */; };
+		E2CAAE191E75C452005FD2D7 /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2CAAE181E75C452005FD2D7 /* icomoon.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		E2CAAE101E70A89A005FD2D7 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		E2CAAE121E71E3F1005FD2D7 /* FLYHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLYHomeViewController.swift; sourceTree = "<group>"; };
 		E2CAAE141E7533FE005FD2D7 /* Agent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
+		E2CAAE161E75BCF9005FD2D7 /* FlyAgentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlyAgentTableViewCell.swift; sourceTree = "<group>"; };
+		E2CAAE181E75C452005FD2D7 /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = icomoon.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 				E2CAADFA1E7097CE005FD2D7 /* ViewController.swift */,
 				E2CAADFF1E7097CE005FD2D7 /* Assets.xcassets */,
 				E2CAAE011E7097CE005FD2D7 /* LaunchScreen.storyboard */,
+				E2CAAE181E75C452005FD2D7 /* icomoon.ttf */,
 				E2CAAE041E7097CE005FD2D7 /* Info.plist */,
 			);
 			path = flyTest;
@@ -116,6 +121,7 @@
 		E2CAAE0C1E709CD2005FD2D7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E2CAAE161E75BCF9005FD2D7 /* FlyAgentTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -192,6 +198,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2CAAE191E75C452005FD2D7 /* icomoon.ttf in Resources */,
 				E2CAAE031E7097CE005FD2D7 /* LaunchScreen.storyboard in Resources */,
 				E2CAAE001E7097CE005FD2D7 /* Assets.xcassets in Resources */,
 			);
@@ -255,6 +262,7 @@
 				E2CAAE111E70A89A005FD2D7 /* Globals.swift in Sources */,
 				E2CAAE0F1E70A386005FD2D7 /* FLYObjectManager.swift in Sources */,
 				E2CAADFB1E7097CE005FD2D7 /* ViewController.swift in Sources */,
+				E2CAAE171E75BCF9005FD2D7 /* FlyAgentTableViewCell.swift in Sources */,
 				E2CAAE151E7533FE005FD2D7 /* Agent.swift in Sources */,
 				E2CAADF91E7097CE005FD2D7 /* AppDelegate.swift in Sources */,
 				E2CAAE131E71E3F1005FD2D7 /* FLYHomeViewController.swift in Sources */,

@@ -12,7 +12,7 @@ import ObjectMapper
 class FLYHomeViewController: UIViewController {
     private var tableView : UITableView?
     private var objectManager : FLYObjectManager?
-    private var agents : [Agent] = [Agent]()
+    var agents : [Agent] = [Agent]()
     //MARK : - life cycle methods
     
     override func viewDidLoad() {
@@ -39,7 +39,7 @@ class FLYHomeViewController: UIViewController {
         tableView?.backgroundColor = UIColor.white
         tableView?.delegate = self
         tableView?.dataSource = self
-        tableView?.register(UITableViewCell.self, forCellReuseIdentifier:NSStringFromClass(UITableViewCell.self))
+        tableView?.register(FlyAgentTableViewCell.self, forCellReuseIdentifier:NSStringFromClass(FlyAgentTableViewCell.self))
         self.view.addSubview(tableView!)
     }
     
@@ -61,6 +61,7 @@ class FLYHomeViewController: UIViewController {
                 let agent = Mapper<Agent>().map(JSONObject: business)
                 agents.append(agent!)
             }
+            tableView?.reloadData()
         }
     }
     
@@ -70,16 +71,19 @@ class FLYHomeViewController: UIViewController {
 }
 
 extension FLYHomeViewController : UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return FlyAgentTableViewCell.getHeightOfCell(agent: agents[indexPath.row])
+    }
 }
 
 extension FLYHomeViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.agents.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier:NSStringFromClass(UITableViewCell.self), for: indexPath)
+        let cell : FlyAgentTableViewCell = tableView.dequeueReusableCell(withIdentifier:NSStringFromClass(FlyAgentTableViewCell.self), for: indexPath) as! FlyAgentTableViewCell
+        cell.updateCellWithAgentModel(agent: agents[indexPath.row])
         return cell
     }
 }

@@ -11,18 +11,18 @@ import ObjectMapper
 
 class Agent: Mappable {
     
-    var image_url : String?
-    var display_phone : String?
-    var distance : Double?
-    var name : String?
-    var rating : Int?
-    var phone : String?
-    var id : String?
-    var review_count : Int?
-    var url : String?
-    var is_closed : Bool?
-    var coordinates : AgentCoordinates?
-    var location : AgentAddress?
+    var image_url      : String?
+    var display_phone  : String?
+    var distance       : Double?
+    var name           : String?
+    var rating         : Int?
+    var phone          : String?
+    var id             : String?
+    var review_count   : Int?
+    var url            : String?
+    var is_closed      : Bool?
+    var coordinates    : AgentCoordinates?
+    var location       : AgentAddress?
 
 
 
@@ -51,10 +51,10 @@ struct AgentAddress: Mappable {
     var address2 : String?
     var address3 : String?
     var zip_code : String?
-    var city : String?
-    var state : String?
+    var city     : String?
+    var state    : String?
     var country  : String?
-    
+    var displayAddress : [String]?
     
     init?(map: Map) {
         
@@ -68,12 +68,13 @@ struct AgentAddress: Mappable {
         city         <- map["city"]
         state        <- map["state"]
         country      <- map["country"]
+        displayAddress <- map["display_address"]
     }
 }
 
 struct AgentCoordinates: Mappable {
-    var longitude: Double?
-    var latitude: Double?
+    var longitude : Double?
+    var latitude  : Double?
     
     init?(map: Map) {
         
