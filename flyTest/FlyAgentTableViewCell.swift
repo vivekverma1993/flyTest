@@ -40,6 +40,11 @@ class FlyAgentTableViewCell: UITableViewCell {
         super.init(coder: aDecoder)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        agentImageView.image = nil
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         agentImageView.frame = CGRect(x: kImagePadding, y: 2*kImagePadding, width: kImageDimension, height: kImageDimension)

@@ -9,22 +9,31 @@
 import UIKit
 import ObjectMapper
 import PKHUD
+import MapKit
 
 class FLYHomeViewController: UIViewController {
 
+    let topOffset : CGFloat = 64.0
+    
     private var tableView : UITableView?
     var searchView : FLYSearchView?
+    var mapView : FLYMapView?
     private var objectManager : FLYObjectManager?
     private var cities : [NSDictionary]?
     var noResult : Bool?
     var agents : [Agent] = [Agent]()
+    var isFlipped : Bool?
+    var currentLatitude : Double?
+    var currentLongitude : Double?
     
     
     //MARK: - life cycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.noResult = false
+        self.p_updateCurrentLocation(lat: 0.0000, long: 0.0000)
+        self.noResult = true
+        self.isFlipped = false
         self.automaticallyAdjustsScrollViewInsets = false
         self.view.backgroundColor = UIColor.red
         objectManager = FLYObjectManager()
@@ -49,8 +58,6 @@ class FLYHomeViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        tableView?.frame = CGRect(x: 0, y: 64, width: Globals.SCREEN_WIDTH, height: self.view.frame.height - 64)
-        searchView?.frame = CGRect(x: 0, y: 64, width: Globals.SCREEN_WIDTH, height: self.view.frame.height - 64)
     }
     
     //MARK: - action methods
@@ -63,21 +70,55 @@ class FLYHomeViewController: UIViewController {
         }
     }
     
+    func p_viewToggleClicked(sender : UIButton) {
+        if (searchView?.isDescendant(of: self.view))! {
+            searchView?.removeFromSuperview()
+        }
+        
+        if (self.isFlipped! == false)
+        {
+            UIView.transition(with: self.view, duration: 0.5, options:.transitionFlipFromRight, animations: { () -> Void in
+                // self.aImageView!.image = UIImage(named: "2.jpg")
+                //hear remove the imageview add new view, say flipped view
+                self.tableView!.removeFromSuperview()
+                self.view.addSubview(self.mapView!)
+                self.mapView?.centerMapOnLocation(location: CLLocation.init(latitude: self.currentLatitude!, longitude: self.currentLongitude!))
+            }, completion: { (Bool) -> Void in
+                self.isFlipped! = true
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "List", style: .done, target: self, action: #selector(FLYHomeViewController.p_viewToggleClicked(sender:)))
+            })
+        }
+        else
+        {
+            UIView.transition(with: self.view, duration: 0.5, options:.transitionFlipFromLeft, animations: { () -> Void in
+                //move back, remove flipped view and add the image view
+                self.mapView!.removeFromSuperview()
+                self.view.addSubview(self.tableView!)
+            }, completion: { (Bool) -> Void in
+                self.isFlipped! = false
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Map", style: .done, target: self, action: #selector(FLYHomeViewController.p_viewToggleClicked(sender:)))
+            })
+        }
+    }
+    
     //MARK: - private methods
     
     private func p_initSubViews() {
         self.setupNavigationBarProperties()
         self.p_setupTableView()
         self.p_setupSearchView()
+        self.p_setupMapView()
     }
     
     private func setupNavigationBarProperties() {
         self.navigationItem.title = "Agents Search"
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(FLYHomeViewController.p_searchClicked(sender:)))
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Map", style: .done, target: self, action: #selector(FLYHomeViewController.p_viewToggleClicked(sender:)))
     }
     
     private func p_setupTableView() {
-        tableView = UITableView()
+        tableView = UITableView.init(frame: CGRect(x: 0, y: topOffset, width: Globals.SCREEN_WIDTH, height: self.view.frame.height - topOffset))
         tableView?.backgroundColor = UIColor.white
         tableView?.delegate = self
         tableView?.dataSource = self
@@ -88,15 +129,21 @@ class FLYHomeViewController: UIViewController {
     }
     
     private func p_setupSearchView() {
-        searchView = FLYSearchView()
+        searchView = FLYSearchView.init(frame: CGRect(x: 0, y: topOffset, width: Globals.SCREEN_WIDTH, height: self.view.frame.height - topOffset))
         searchView?.backgroundColor = Colors.WHITE_COLOR
         searchView?.delegate = self
         self.view.addSubview(searchView!)
     }
     
+    private func p_setupMapView() {
+        mapView = FLYMapView.init(frame: CGRect(x: 0, y: topOffset, width: Globals.SCREEN_WIDTH, height: self.view.frame.height - topOffset))
+    }
+    
     func p_fetchData(lat : Double, long : Double) {
         HUD.show(.progress)
         agents.removeAll()
+        mapView?.updateCurrentLocation(latitude: lat, longitude: long)
+        self.p_updateCurrentLocation(lat: lat, long: long)
         let params : String = "Real Estate Agents&latitude=\(lat)&longitude=\(long)&radius=30000"
         let hostUrl : String = "https://api.yelp.com/v3/businesses/search?term="
         objectManager?.getObjectWithUrlPath(urlPath: hostUrl, params:params, success: { [weak self] response in
@@ -120,6 +167,7 @@ class FLYHomeViewController: UIViewController {
             } else {
                 noResult = false
             }
+            mapView?.updateMapWithArtWorks(agents: agents)
             tableView?.reloadData()
             searchView?.removeFromSuperview()
         }
@@ -128,6 +176,11 @@ class FLYHomeViewController: UIViewController {
     private func p_handleFailure() {
         HUD.hide()
         HUD.flash(.label("Unable to fetch results!"), onView: searchView!, delay: 2.0, completion: nil)
+    }
+    
+    private func p_updateCurrentLocation(lat : Double, long : Double) {
+        self.currentLatitude = lat
+        self.currentLongitude = long
     }
 }
 

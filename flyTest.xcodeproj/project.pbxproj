@@ -21,6 +21,7 @@
 		E2CAAE151E7533FE005FD2D7 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CAAE141E7533FE005FD2D7 /* Agent.swift */; };
 		E2CAAE171E75BCF9005FD2D7 /* FlyAgentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CAAE161E75BCF9005FD2D7 /* FlyAgentTableViewCell.swift */; };
 		E2CAAE191E75C452005FD2D7 /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2CAAE181E75C452005FD2D7 /* icomoon.ttf */; };
+		E2F813221E78296B008273E4 /* FLYMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F813211E78296B008273E4 /* FLYMapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		E2CAAE141E7533FE005FD2D7 /* Agent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
 		E2CAAE161E75BCF9005FD2D7 /* FlyAgentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlyAgentTableViewCell.swift; sourceTree = "<group>"; };
 		E2CAAE181E75C452005FD2D7 /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = icomoon.ttf; sourceTree = "<group>"; };
+		E2F813211E78296B008273E4 /* FLYMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLYMapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 			children = (
 				E2CAAE161E75BCF9005FD2D7 /* FlyAgentTableViewCell.swift */,
 				E25BFCC71E767438003FA329 /* FLYSearchView.swift */,
+				E2F813211E78296B008273E4 /* FLYMapView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				E2CAADF91E7097CE005FD2D7 /* AppDelegate.swift in Sources */,
 				E25BFCC61E765E4D003FA329 /* CitiesData.swift in Sources */,
 				E2CAAE131E71E3F1005FD2D7 /* FLYHomeViewController.swift in Sources */,
+				E2F813221E78296B008273E4 /* FLYMapView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +400,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = Y4NM28BGLN;
 				INFOPLIST_FILE = flyTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vivek.flyTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -411,6 +416,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = Y4NM28BGLN;
 				INFOPLIST_FILE = flyTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vivek.flyTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";

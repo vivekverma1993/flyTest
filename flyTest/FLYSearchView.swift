@@ -34,6 +34,10 @@ class FLYSearchView: UIView {
         self.p_fetchLocation()
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     func checkLocation() {
         if (CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .notDetermined) {
             if (CLLocationManager.locationServicesEnabled())
@@ -83,7 +87,11 @@ class FLYSearchView: UIView {
         let alert : UIAlertController = UIAlertController(title: "Location denied", message: "Please provide access to your location", preferredStyle: .alert)
         
         let settingsAction : UIAlertAction = UIAlertAction(title: "Settings", style:.cancel , handler: { (alertAction) in
-            UIApplication.shared.open(NSURL(string: UIApplicationOpenSettingsURLString) as! URL, options:[:], completionHandler: nil)
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(NSURL(string: UIApplicationOpenSettingsURLString) as! URL, options:[:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(NSURL(string: UIApplicationOpenSettingsURLString) as! URL)
+            }
         })
         
         alert.addAction(settingsAction)
@@ -92,10 +100,6 @@ class FLYSearchView: UIView {
         alert.addAction(cancelAction)
         
         UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
     }
     
     override func layoutSubviews() {
