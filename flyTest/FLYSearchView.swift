@@ -43,7 +43,7 @@ class FLYSearchView: UIView {
             if (CLLocationManager.locationServicesEnabled())
             {
                 locationManager.delegate = self
-                locationManager.desiredAccuracy = kCLLocationAccuracyBest
+                locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
                 if ((UIDevice.current.systemVersion as NSString).floatValue >= 8)
                 {
                     locationManager.requestWhenInUseAuthorization()
@@ -65,7 +65,7 @@ class FLYSearchView: UIView {
             if (CLLocationManager.locationServicesEnabled())
             {
                 locationManager.delegate = self
-                locationManager.desiredAccuracy = kCLLocationAccuracyBest
+                locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
                 if ((UIDevice.current.systemVersion as NSString).floatValue >= 8)
                 {
                     locationManager.requestWhenInUseAuthorization()

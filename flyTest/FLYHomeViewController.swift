@@ -40,7 +40,7 @@ class FLYHomeViewController: UIViewController {
         self.noResult = true
         self.isFlipped = false
         self.automaticallyAdjustsScrollViewInsets = false
-        self.view.backgroundColor = UIColor.red
+        self.view.backgroundColor = Colors.WHITE_COLOR
         objectManager = FLYObjectManager()
         self.p_registerNotifications()
         self.p_initSubViews()
