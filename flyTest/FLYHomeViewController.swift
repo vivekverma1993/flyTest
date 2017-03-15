@@ -36,7 +36,7 @@ class FLYHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.firstTimeLoad = true
-        self.p_updateCurrentLocation(lat: 0.0000, long: 0.0000)
+        self.p_updateCurrentLocation(lat: 28.7041, long: 77.1025)
         self.noResult = true
         self.isFlipped = false
         self.automaticallyAdjustsScrollViewInsets = false
@@ -273,7 +273,6 @@ extension FLYHomeViewController : UITableViewDataSource {
             cell.updateCellWithAgentModel(agent: agents[indexPath.row])
             return cell
         }
-        
     }
 }
 
