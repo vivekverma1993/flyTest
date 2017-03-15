@@ -19,9 +19,9 @@ struct Icons {
     static let STAR_ICON : String = String.init("\u{e705}")
     static let LOCATION_ICON : String = String.init("\u{e94e}")
 }
-
+//UIColor(red:0.93, green:0.08, blue:0.08, alpha:1.0)
 struct Colors {
-    static let THEME_COLOR : UIColor = UIColor(red:0.93, green:0.08, blue:0.08, alpha:1.0)
+    static let THEME_COLOR : UIColor = UIColor(red:0.42, green:0.76, blue:0.71, alpha:1.0)
     static let BLACK_COLOR : UIColor = UIColor.black
     static let BORDER_COLOR : UIColor = UIColor.black.withAlphaComponent(0.3)
     static let GRAY_COLOR  : UIColor = UIColor.gray

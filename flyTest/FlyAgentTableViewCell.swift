@@ -161,7 +161,7 @@ class FlyAgentTableViewCell: UITableViewCell {
     
     private func setupContactButton() {
         contactAgent.setTitle(Strings.CONTACT_AGENT_STRING, for: .normal)
-        contactAgent.setTitleColor(Colors.BLUE_COLOR, for: .normal)
+        contactAgent.setTitleColor(Colors.THEME_COLOR, for: .normal)
         contactAgent.titleLabel?.font = UIFont.systemFont(ofSize: kButtonFontSize)
         contactAgent.backgroundColor = Colors.FAFAFA
         contactAgent.layer.borderWidth = kButtonBorderWidth
@@ -184,7 +184,7 @@ class FlyAgentTableViewCell: UITableViewCell {
             ratingLeftString = ratingLeftString + Icons.STAR_ICON + " "
         }
         
-        mutableString.append(NSAttributedString(string: ratingLeftString, attributes: [NSForegroundColorAttributeName: Colors.GRAY_COLOR, NSFontAttributeName: UIFont.init(name: Globals.ICON_FONT, size: kRatingIconSize) ?? UIFont.systemFont(ofSize: kRatingIconSize)]))
+        mutableString.append(NSAttributedString(string: ratingLeftString, attributes: [NSForegroundColorAttributeName: Colors.FAFAFA, NSFontAttributeName: UIFont.init(name: Globals.ICON_FONT, size: kRatingIconSize) ?? UIFont.systemFont(ofSize: kRatingIconSize)]))
         
         return mutableString.copy() as! NSAttributedString
     }

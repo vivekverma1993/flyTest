@@ -252,6 +252,7 @@ extension FLYHomeViewController : UITableViewDelegate {
         if self.noResult!  {
             self.view.addSubview(searchView!)
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
