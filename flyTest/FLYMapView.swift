@@ -46,14 +46,13 @@ class FLYMapView: UIView {
             annotations.append(annotation)
         }
         mapView?.addAnnotations(annotations)
-        mapView?.addAnnotation((mapView?.userLocation)!)
     }
     
     //MARK: - private methods
     
     private func p_initSubviews() {
         mapView = MKMapView()
-        mapView?.delegate = self
+        mapView?.showsUserLocation = true
         self.addSubview(mapView!)
     }
     
@@ -64,6 +63,3 @@ class FLYMapView: UIView {
     }
 }
 
-extension FLYMapView : MKMapViewDelegate {
-
-}

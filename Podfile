@@ -10,4 +10,5 @@ target 'flyTest' do
   pod 'ObjectMapper', '~> 2.2'
   pod 'PINRemoteImage', '3.0.0-beta.8'
   pod 'PKHUD', '~> 4.0'
+  pod 'ReachabilitySwift', '~> 3'
 end

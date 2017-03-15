@@ -32,6 +32,8 @@ struct Colors {
 
 struct Strings {
     static let CONTACT_AGENT_STRING : String = "Contact Agent"
+    static let NO_INTERNET_STRING   : String = "You're not connected to the internet. Please connect and retry"
+    static let REACHABILITY_NOTIFICATION : String = "internetReachability"
 }
 
 struct CommonFunctions {

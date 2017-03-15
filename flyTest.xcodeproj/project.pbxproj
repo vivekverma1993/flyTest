@@ -22,6 +22,7 @@
 		E2CAAE171E75BCF9005FD2D7 /* FlyAgentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CAAE161E75BCF9005FD2D7 /* FlyAgentTableViewCell.swift */; };
 		E2CAAE191E75C452005FD2D7 /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2CAAE181E75C452005FD2D7 /* icomoon.ttf */; };
 		E2F813221E78296B008273E4 /* FLYMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F813211E78296B008273E4 /* FLYMapView.swift */; };
+		E2F813241E784DB8008273E4 /* FLYNoInternetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F813231E784DB8008273E4 /* FLYNoInternetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		E2CAAE161E75BCF9005FD2D7 /* FlyAgentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlyAgentTableViewCell.swift; sourceTree = "<group>"; };
 		E2CAAE181E75C452005FD2D7 /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = icomoon.ttf; sourceTree = "<group>"; };
 		E2F813211E78296B008273E4 /* FLYMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLYMapView.swift; sourceTree = "<group>"; };
+		E2F813231E784DB8008273E4 /* FLYNoInternetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLYNoInternetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				E2CAAE161E75BCF9005FD2D7 /* FlyAgentTableViewCell.swift */,
 				E25BFCC71E767438003FA329 /* FLYSearchView.swift */,
 				E2F813211E78296B008273E4 /* FLYMapView.swift */,
+				E2F813231E784DB8008273E4 /* FLYNoInternetView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2CAAE111E70A89A005FD2D7 /* Globals.swift in Sources */,
+				E2F813241E784DB8008273E4 /* FLYNoInternetView.swift in Sources */,
 				E2CAAE0F1E70A386005FD2D7 /* FLYObjectManager.swift in Sources */,
 				E2CAADFB1E7097CE005FD2D7 /* ViewController.swift in Sources */,
 				E25BFCC81E767439003FA329 /* FLYSearchView.swift in Sources */,
@@ -405,6 +409,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vivek.flyTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -421,6 +426,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vivek.flyTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

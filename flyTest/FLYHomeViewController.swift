@@ -10,14 +10,17 @@ import UIKit
 import ObjectMapper
 import PKHUD
 import MapKit
+import ReachabilitySwift
 
 class FLYHomeViewController: UIViewController {
 
     let topOffset : CGFloat = 64.0
+    let reachability = Reachability()!
     
     private var tableView : UITableView?
     var searchView : FLYSearchView?
     var mapView : FLYMapView?
+    var noInternetView : FLYNoInternetView?
     private var objectManager : FLYObjectManager?
     private var cities : [NSDictionary]?
     var noResult : Bool?
@@ -25,12 +28,14 @@ class FLYHomeViewController: UIViewController {
     var isFlipped : Bool?
     var currentLatitude : Double?
     var currentLongitude : Double?
+    var firstTimeLoad : Bool?
     
     
     //MARK: - life cycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.firstTimeLoad = true
         self.p_updateCurrentLocation(lat: 0.0000, long: 0.0000)
         self.noResult = true
         self.isFlipped = false
@@ -41,8 +46,19 @@ class FLYHomeViewController: UIViewController {
         self.p_initSubViews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged),name: ReachabilityChangedNotification,object: reachability)
+        do{
+            try reachability.startNotifier()
+        }catch{
+            print("could not start reachability notifier")
+        }
+    }
+    
     private func p_registerNotifications() {
-         NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationWillEnterForeground, object: nil, queue: OperationQueue.main) {
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationWillEnterForeground, object: nil, queue: OperationQueue.main) {
             [unowned self] notification in
             self.searchView?.checkLocation()
         }
@@ -101,6 +117,17 @@ class FLYHomeViewController: UIViewController {
         }
     }
     
+    func reachabilityChanged(note: NSNotification) {
+        let reachability = note.object as! Reachability
+        
+        if reachability.isReachable {
+            p_isReachableSetup()
+        } else {
+            p_isUnReachableSetup()
+        }
+        self.firstTimeLoad = false
+    }
+    
     //MARK: - private methods
     
     private func p_initSubViews() {
@@ -108,6 +135,12 @@ class FLYHomeViewController: UIViewController {
         self.p_setupTableView()
         self.p_setupSearchView()
         self.p_setupMapView()
+        self.p_setupNoInternetView()
+    }
+    
+    private func removeNavigationBarProperties() {
+        self.navigationItem.leftBarButtonItem = nil
+        self.navigationItem.rightBarButtonItem = nil
     }
     
     private func setupNavigationBarProperties() {
@@ -137,6 +170,11 @@ class FLYHomeViewController: UIViewController {
     
     private func p_setupMapView() {
         mapView = FLYMapView.init(frame: CGRect(x: 0, y: topOffset, width: Globals.SCREEN_WIDTH, height: self.view.frame.height - topOffset))
+    }
+    
+    private func p_setupNoInternetView() {
+        noInternetView = FLYNoInternetView.init(frame: CGRect(x: 0, y: topOffset, width: Globals.SCREEN_WIDTH, height: self.view.frame.height - topOffset))
+        noInternetView?.delegate = self
     }
     
     func p_fetchData(lat : Double, long : Double) {
@@ -182,6 +220,18 @@ class FLYHomeViewController: UIViewController {
         self.currentLatitude = lat
         self.currentLongitude = long
     }
+    
+    func p_isReachableSetup() {
+        noInternetView?.removeFromSuperview()
+        if !self.firstTimeLoad! {
+            self.setupNavigationBarProperties()
+        }
+    }
+    
+    func p_isUnReachableSetup() {
+        self.view.addSubview(noInternetView!)
+        self.removeNavigationBarProperties()
+    }
 }
 
 extension FLYHomeViewController : FLYSearchViewDelegate {
@@ -223,5 +273,16 @@ extension FLYHomeViewController : UITableViewDataSource {
             return cell
         }
         
+    }
+}
+
+
+extension FLYHomeViewController : FLYNoInternetViewDelegate {
+    func refreshClicked() {
+        if self.reachability.isReachable {
+            self.p_isReachableSetup()
+        } else {
+            HUD.flash(.label("No Network"), delay: 1.0)
+        }
     }
 }

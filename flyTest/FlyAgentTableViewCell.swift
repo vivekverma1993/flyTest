@@ -8,6 +8,7 @@
 
 import UIKit
 import PINRemoteImage
+import PKHUD
 
 class FlyAgentTableViewCell: UITableViewCell {
     
@@ -29,6 +30,7 @@ class FlyAgentTableViewCell: UITableViewCell {
     private var ratingCountLabel : UILabel = UILabel()
     private var addressLabel     : UILabel = UILabel()
     private var contactAgent     : UIButton = UIButton()
+    private var agent            : Agent?
     
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -71,12 +73,19 @@ class FlyAgentTableViewCell: UITableViewCell {
     //MARK: - action methods
     
     func contactTapped(sender : UIButton) {
-        
+        let phone : String = (self.agent?.phone)!
+        if phone.characters.count == 0 {
+            HUD.flash(.label("Incorrect Number"), delay: 1.0)
+        }
+        if let url = NSURL(string: "tel://\(phone)"), UIApplication.shared.canOpenURL(url as URL) {
+            UIApplication.shared.openURL(url as URL)
+        }
     }
     
     //MARK: - public methods
     
     public func updateCellWithAgentModel(agent : Agent) {
+        self.agent = agent
         agentImageView.pin_updateWithProgress = true
         agentImageView.pin_setImage(from: URL(string: agent.image_url!)!) {[weak self] (result) in
             self?.agentImageView.image = self?.resizeImage(image: result.image!, newWidth: (self?.kImageDimension)!)
